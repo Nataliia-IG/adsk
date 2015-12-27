@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
+require ('countries_api_vk.php');
+
 class DatabaseSeeder extends Seeder {
 
 	/**
@@ -14,7 +16,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
+		 $this->call('countries_api_vk');
 	}
 
 }
