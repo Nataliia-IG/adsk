@@ -28,11 +28,16 @@
                         <tr>
                             <th>Страна</th>
                             <td>
-                                @if($User->city_id)
-                                    {{$User->city->country->title}}
-                                @else
-                                    <span class="text-muted">Не указано</span>
-                                @endif
+                                <select class="form-control" name="user[country_id]" id="">
+                                    @foreach($Countries as $Country)
+                                        @if($Country->id == $User->country_id)
+                                            <option value="{{$Country->id}}" selected>{{$Country->title}}</option>
+                                        @else
+                                            <option value="{{$Country->id}}">{{$Country->title}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+
                             </td>
                         </tr>
                         <tr>
@@ -58,46 +63,33 @@
                         </tr>
                         <tr>
                             <th>Выпускная<br>специальность</th>
-                            <td>
-                                @if($User->speciality)
-                                    {{$User->speciality}}
-                                @else
-                                    <span class="text-muted">Не указано</span>
-                                @endif
-                            </td>
+                            <td><input class="form-control" type="text" name="user[speciality]" value="{{$User->speciality}}"></td>
                         </tr>
-                        @if($User->work_place)
+
                             <tr>
                                 <th>Место работы</th>
-                                <td>{{$User->work_place}}</td>
+                                <td><input class="form-control" type="text" name="user[work_place]" value="{{$User->work_place}}"></td>
                             </tr>
-                        @endif
+
                         <tr>
                             <th>E-Mail</th>
                             <td>{{$User->email}}</td>
                         </tr>
                         <tr>
                             <th>Телефон</th>
-                            <td>
-                                @if($User->telephone)
-                                    {{$User->telephone}}
-                                @else
-                                    <span class="text-muted">Не указано</span>
-                                @endif
-                            </td>
+                            <td><input class="form-control" type="text" name="user[telephone]" value="{{$User->telephone}}"></td>
                         </tr>
-                        @if($User->skype)
+
                             <tr>
                                 <th>Skype</th>
-                                <td>{{$User->skype}}</td>
+                                <td><input class="form-control" type="text" name="user[skype]" value="{{$User->skype}}"></td>
                             </tr>
-                        @endif
-                        @if($User->site_url)
+
                             <tr>
                                 <th>URL сайта/болга</th>
-                                <td>{{$User->site_url}}</td>
+                                <td><input class="form-control" type="text" name="user[site_url]" value="{{$User->site_url}}"></td>
                             </tr>
-                        @endif
+
                     </table>
                 </div>
             </div>

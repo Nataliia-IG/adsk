@@ -22,6 +22,7 @@ class UsersAddFields extends Migration {
 			$table->string('skype');
 			$table->string('site_url');
 			$table->string('avatar', 2048)->default('./images/avatars/default.png');
+
 		});
 	}
 

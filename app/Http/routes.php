@@ -30,8 +30,9 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 Route::get('test', function(){
-    $vk = new VK(env('VK_APP_ID'), env('VK_KEY_SECRET'));
     echo "<pre>";
-    var_dump($vk->api('database.getCountries', ['need_all' => 1, 'count' => 1000, 'lang' => 'ru']));
+    $User = \App\User::all();
+    $User->first_name = "1111111111";
+    var_dump($User);
     echo "</pre>";
 });

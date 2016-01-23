@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\Country;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +27,9 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function profile()
+	public function profile(User $User)
 	{
-		//
+		print_r($User);
 	}
 
 	/**
@@ -61,6 +63,7 @@ class UsersController extends Controller {
 	{
 		$User = Auth::user();
 		$this->data['User'] = $User;
+		$this->data['Countries'] = Country::orderBy('title')->get();
 		return view('client.users.edit', $this->data);
 	}
 
